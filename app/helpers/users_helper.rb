@@ -1,6 +1,6 @@
 module UsersHelper
   def user_icon(user)
-    user.profile_image.presence || "common/default-avatar.png"
+    user.image.presence || "common/default-avatar.png"
   end
 
   def current_pages?(prefixes)

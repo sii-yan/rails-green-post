@@ -13,7 +13,7 @@
 
       <%= form_with model: current_user, url: users_profile_path, method: :patch do |f| %>
         <div class="FileUploadArea AccountInformation__input-group">
-          <%= f.label :image, "アイコン画像", class: "AccountInformation__label" %>
+          <%= f.label :profile_image, "アイコン画像", class: "AccountInformation__label" %>
 
           <p class="FileUploadArea__input-group">
             <%= image_tag user_icon(current_user), class: "FileUploadArea__image", alt: 'アイコン画像' %>
