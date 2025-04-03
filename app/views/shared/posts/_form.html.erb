@@ -3,7 +3,7 @@
     <%= f.label :title, "タイトル", class: "form-label PostsForm__label Form__label--required" %>
 
     <div class="PostsForm__input">
-      <%= f.text_field :title, class: "form-control", placeholder: "ルーム名を入力" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
       <%= render "shared/error_message", object: @post, key: "title" %>
     </div>
   </div>
