@@ -1,4 +1,4 @@
 class Users::AccountController < ApplicationController
-  def show;
+  def show
   end
 end

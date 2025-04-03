@@ -52,15 +52,15 @@
   }
 
   &__name {
-    color: $white;
+    color: $text-black;
     font-size: 16px;
     line-height: 24px;
     margin-right: 10px;
   }
 
   &__icon {
-    color: $white;
-    stroke: white;
+    color: $text-black;
+    stroke: $text-black;
     stroke-width: 2px;
     width: 8px;
   }
