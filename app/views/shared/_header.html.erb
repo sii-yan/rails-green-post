@@ -6,7 +6,6 @@
       <% if user_signed_in? %>
         <div class="dropdown">
           <div class="d-flex align-items-center NavProfile" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= image_tag user_icon(current_user), class: "NavProfile__avatar", alt: 'アバター' %>
 
             <span class="nav-item d-sm-inline-block d-none NavProfile__name">
               <%= current_user.name %>
@@ -19,7 +18,7 @@
 
           <ul class="dropdown-menu DropdownMenu" aria-labelledby="dropdown-button">
             <li class="DropdownMenu__item">
-              <%= link_to "投稿", new_post_path %>
+              <a href="" class="">投稿</a>
             </li>
 
             <hr class="DropdownMenu__hr">
