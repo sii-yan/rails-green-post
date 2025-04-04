@@ -25,13 +25,17 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.destroy
-      flash[:notice] = "投稿が削除されました。"
-    else
-      flash[:alert] = "投稿の削除に失敗しました。"
-    end
+    @post = current_user.posts.find_by(id: params[:id])
 
-    redirect_to posts_url
+  if @post.nil?
+    flash[:alert] = "投稿が見つかりません。"
+  elsif @post.destroy
+    flash[:notice] = "投稿が削除されました。"
+  else
+    flash[:alert] = "投稿の削除に失敗しました。"
+  end
+
+    redirect_to mypost_posts_path
   end
 
   def mypost
