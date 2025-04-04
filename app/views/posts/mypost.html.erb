@@ -1,5 +1,5 @@
 <section class="container MyPostsContainer">
-  <h2>
+  <h2 class="PostSectionTitle">
     私の投稿一覧
   </h2>
 
@@ -31,7 +31,7 @@
             </td>
 
             <td class="text-nowrap">
-              <%= post.created_at.to_s(:datetime_jp) %>
+              <%= post.created_at.to_formatted_s(:datetime_jp) %>
             </td>
 
             <td>

@@ -227,3 +227,14 @@
     }
   }
 }
+
+
+// ---------------- MyPosts ----------------
+.MyPostsContainer {
+  margin-top: 40px;
+  margin-bottom: 260px;
+}
+
+.MyPostsTable {
+  @include index-table;
+}
