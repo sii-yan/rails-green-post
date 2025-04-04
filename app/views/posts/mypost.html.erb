@@ -1,0 +1,70 @@
+<section class="container MyPostsContainer">
+  <h2>
+    私の投稿一覧
+  </h2>
+
+  <div class="table-responsive">
+    <table class="table align-middle MyPostsTable">
+      <thead>
+        <tr>
+          <th>写真</th>
+          <th>タイトル</th>
+          <th>コメント</th>
+          <th>作成日</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td>
+              <%= link_to image_tag(post_image(post)), post_path(post) %>
+            </td>
+
+            <td>
+              <%= link_to post.title, post_path(post) %>
+            </td>
+
+            <td>
+              <%= post.content %>
+            </td>
+
+            <td class="text-nowrap">
+              <%= post.created_at.to_s(:datetime_jp) %>
+            </td>
+
+            <td>
+              <div class="dropdown">
+                <div class="d-flex align-items-center justify-content-center" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= image_tag "icons/three-dot-menu.svg", alt: "3点メニューアイコン" %>
+                </div>
+
+                <ul class="dropdown-menu DropdownMenu" aria-labelledby="dropdown-button">
+                  <li class="DropdownMenu__item DropdownMenu__item--danger">
+                    <%= link_to "施設を削除",
+                                post,
+                                method: :delete,
+                                title: "以下の施設を削除しますか？",
+                                data: {
+                                  confirm: "<div class='ConfirmBody'>
+                                              #{image_tag(post_image(post), class: 'ConfirmBody__image')}
+                                              <div>
+                                                #{post.title}
+                                              </div>
+                                            </div>
+                                            よろしければ「削除」ボタンを押してください。",
+                                  commit: "削除",
+                                  cancel: "キャンセル"
+                                }
+                    %>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :new, :update, :destroy, :mypost]
 
   def index
     @posts = Post.with_attached_image.includes(:user)
@@ -22,6 +22,20 @@ class PostsController < ApplicationController
       flash.now[:alert] = "投稿に失敗しました。"
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    if @post.destroy
+      flash[:notice] = "投稿が削除されました。"
+    else
+      flash[:alert] = "投稿の削除に失敗しました。"
+    end
+
+    redirect_to posts_url
+  end
+
+  def mypost
+    @posts = current_user.posts.with_attached_image
   end
 
   private
