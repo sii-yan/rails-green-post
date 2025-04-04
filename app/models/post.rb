@@ -6,6 +6,6 @@ class Post < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :content
-    validates :post_image
+    validates :image
   end
 end

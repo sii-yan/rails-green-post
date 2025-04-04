@@ -4,41 +4,19 @@
   </h2>
 
   <ul class="PostList">
-    <li class="Post">
-      <img src="" alt="" class="Post__image">
-      <div class="PostBodyWrapper">
-        <p class="Post__name">
-          トム
-        </p>
+    <% @posts.each do |post| %>
+      <li class="Post">
+        <%= image_tag post_image(post), alt: "写真", class: "Post__image" %>
+        <div class="PostBodyWrapper">
+          <p class="Post__name">
+            <%= post.title %>
+          </p>
 
-        <p class="Post__content">
-          テスト投稿です。
-        </p>
-      </div>
-    </li>
-    <li class="Post">
-      <img src="" alt="" class="Post__image">
-      <div class="PostBodyWrapper">
-        <p class="Post__name">
-          トム
-        </p>
-
-        <p class="Post__content">
-          テスト投稿です。
-        </p>
-      </div>
-    </li>
-    <li class="Post">
-      <img src="" alt="" class="Post__image">
-      <div class="PostBodyWrapper">
-        <p class="Post__name">
-          トム
-        </p>
-
-        <p class="Post__content">
-          テスト投稿です。
-        </p>
-      </div>
-    </li>
+          <p class="Post__content">
+            <%= post.content %>
+          </p>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </div>

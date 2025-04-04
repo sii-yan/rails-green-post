@@ -1,25 +1,18 @@
 ja:
   activerecord:
     attributes:
-      room:
-        name: 施設名
-        content: 施設詳細
-        price: 料金
-        address: 住所
-        image: 施設画像
-      reservation:
-        start_date: チェックイン日
-        end_date: チェックアウト日
-        person_num: 人数
+      post:
+        title: タイトル
+        content: コメント
+        image: 写真
+      comment:
     errors:
       models:
-        room:
+        post:
           attributes:
-            name:
+            title:
               blank: "は必須です。"
             content:
               blank: "は必須です。"
-            price:
-              blank: "は必須です。"
-            address:
+            image:
               blank: "は必須です。"

@@ -1,0 +1,24 @@
+<div class="container PostDetailsContainer">
+  <div class="PostDetailsHeader">
+    <%= link_to :back, class: "PostDetailsHeader__link" do %>
+      <%= image_tag "icons/arrow-back-blue.svg", alt: "戻るアイコン" %>
+      戻る
+    <% end %>
+  </div>
+
+  <div class="PostDetails">
+    <%= image_tag post_image(@post), alt: "部屋画像", class: "PostDetails__image" %>
+
+    <div class="PostDetailsBody">
+      <div class="PostDetailsBody__name-and-price">
+        <p class="PostDetails__name">
+          <%= @post.title %>
+        </p>
+
+        <p class="PostDetails__content">
+          <%= @post.content %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

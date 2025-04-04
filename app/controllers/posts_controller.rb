@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+
   def index
+    @posts = Post.with_attached_image
   end
 
   def show
@@ -16,7 +18,13 @@ class PostsController < ApplicationController
       redirect_to @post, notice: "投稿しました。"
     else
       flash.now[:alert] = "投稿に失敗しました。"
-      render :new
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :content, :image)
   end
 end

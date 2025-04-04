@@ -43,7 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_03_111626) do
     t.bigint "user_id", null: false
     t.string "title"
     t.text "content"
-    t.string "post_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -58,7 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2025_04_03_111626) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", default: "", null: false
-    t.string "profile_image"
     t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

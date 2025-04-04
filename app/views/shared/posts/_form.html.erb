@@ -18,12 +18,12 @@
   </div>
 
   <div class="PostsForm__input-group FileUploadArea">
-    <%= f.label :post_image, "写真", class: "PostsForm__label" %>
+    <%= f.label :image, "写真", class: "PostsForm__label Form__label--required" %>
 
     <p class=" PostsForm__input FileUploadArea__input-group">
-      <%= f.label :post_image, "写真", class: "FileUploadArea__label" do %>
+      <%= f.label :image, "写真", class: "FileUploadArea__label" do %>
         <span>画像アップロード</span>
-        <%= f.file_field :post_image %>
+        <%= f.file_field :image %>
       <% end %>
     </p>
   </div>
