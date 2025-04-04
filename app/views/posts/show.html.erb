@@ -7,11 +7,18 @@
   </div>
 
   <div class="PostDetails">
-    <%= image_tag post_image(@post), alt: "部屋画像", class: "PostDetails__image" %>
+    <%= image_tag post_image(@post), alt: "写真", class: "PostDetails__image" %>
 
     <div class="PostDetailsBody">
-      <div class="PostDetailsBody__name-and-price">
-        <p class="PostDetails__name">
+      <div class="d-flex align-items-center NavProfile" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= image_tag user_icon(@post.user), class: "NavProfile__avatar", alt: 'アバター' %>
+
+        <span class="nav-item d-sm-inline-block d-none NavProfile__name">
+          <%= @post.user&.name || "ゲスト" %>
+        </span>
+      </div>
+      <div class="PostDetailsBody__title-and-content">
+        <p class="PostDetails__title">
           <%= @post.title %>
         </p>
 

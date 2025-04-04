@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
 
   def index
-    @posts = Post.with_attached_image
+    @posts = Post.with_attached_image.includes(:user)
   end
 
   def show
+    @post = Post.includes(:user).find(params[:id])
   end
 
   def new

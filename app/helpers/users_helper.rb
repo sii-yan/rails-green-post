@@ -1,5 +1,6 @@
 module UsersHelper
   def user_icon(user)
+    return "common/default-avatar.png" if user.nil?
     user.image.presence || "common/default-avatar.png"
   end
 
