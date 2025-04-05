@@ -237,4 +237,8 @@
 
 .MyPostsTable {
   @include index-table;
+
+  &__delete {
+    color: $text-gray;
+  }
 }
