@@ -35,8 +35,8 @@
 }
 
 .Post {
-  background: $background-beige;
-  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .15);
+  border-radius: 4px;
   width: calc((100% - 64px) / 3);
 
   @include sm-device-or-less {
@@ -49,7 +49,7 @@
 
   &__image {
     aspect-ratio: 16 / 9;
-    border-radius: 8px 8px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
     object-fit: cover;
     width: 100%;
   }
