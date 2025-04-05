@@ -19,9 +19,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to @post, notice: "投稿しました。"
+      redirect_to @post, notice: "投稿しました"
     else
-      flash.now[:alert] = "投稿に失敗しました。"
+      flash.now[:alert] = "投稿に失敗しました"
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,11 +30,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by(id: params[:id])
 
   if @post.nil?
-    flash[:alert] = "投稿が見つかりません。"
+    flash[:alert] = "投稿が見つかりません"
   elsif @post.destroy
-    flash[:notice] = "投稿が削除されました。"
+    flash[:notice] = "投稿が削除されました"
   else
-    flash[:alert] = "投稿の削除に失敗しました。"
+    flash[:alert] = "投稿の削除に失敗しました"
   end
 
     redirect_to mypost_posts_path
