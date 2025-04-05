@@ -15,8 +15,16 @@ class CommentsController < ApplicationController
 
   def destroy
     comment = Comment.find(params[:id])
-    comment.delete
-    redirect_to comment.post, flash: { notice: 'コメントが削除されました' }
+
+    # コメントしたユーザー本人だけ削除可能にする
+    if comment.user == current_user
+      comment.destroy
+      flash[:notice] = 'コメントが削除されました。'
+    else
+      flash[:alert] = '削除する権限がありません。'
+    end
+
+    redirect_to comment.post
   end
 
   private
