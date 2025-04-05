@@ -1,0 +1,29 @@
+.CommentForm {
+  margin: 32px auto;
+  padding: 24px;
+}
+
+.CommentList {
+  margin: 32px auto;
+  padding: 24px;
+
+  &__title {
+    border-bottom: 1px solid $border-light-gray;
+    padding-bottom: 8px;
+  }
+
+  &__item {
+    padding: 16px;
+    border-bottom: 1px solid $border-light-gray;
+  }
+
+  &__bottom-line {
+    font-size: 14px;
+    text-align: right;
+
+    > span {
+      font-size: 12px;
+      margin: 0 12px;
+    }
+  }
+}
