@@ -28,4 +28,13 @@
       </div>
     </div>
   </div>
+
+  <div class="CommentList">
+    <div class="CommentList__title">コメント</div>
+    <% @comments.each do |comment| %>
+      <%= render "shared/comments/comment", comment: comment %>
+    <% end %>
+  </div>
+
+  <%= render "shared/comments/form", comment: @comment %>
 </div>

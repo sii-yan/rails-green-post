@@ -1,0 +1,13 @@
+<div class="CommentList__item">
+  <p><%= simple_format(comment.comment) %></p>
+  <div class="CommentList__bottom-line">
+    <div class="d-flex align-items-center NavProfile" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
+      <%= image_tag user_icon(comment.post.user), class: "NavProfile__avatar--sm", alt: 'アバター' %>
+      <span class="nav-item d-sm-inline-block d-none NavProfile__name">
+        <%= comment.post.user&.name || "ゲスト" %>
+      </span>
+    </div>
+    <span><%= comment.created_at.to_formatted_s(:datetime_jp) %></span>
+    <span><%= link_to "削除", comment, data: { turbo_method: "delete", turbo_confirm: "削除してよろしいですか？" } %></span>
+  </div>
+</div>
