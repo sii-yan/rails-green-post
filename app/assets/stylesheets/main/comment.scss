@@ -1,6 +1,13 @@
 .CommentForm {
   margin: 32px auto;
   padding: 24px;
+
+  &__button {
+    color: $text-black;
+    font-size: 12px;
+    line-height: 18px;
+    @include primary-button
+  }
 }
 
 .CommentList {

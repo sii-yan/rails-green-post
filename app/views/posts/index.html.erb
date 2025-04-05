@@ -11,7 +11,7 @@
           <div class="PostBodyWrapper">
             <div class="d-flex align-items-center NavProfile" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= image_tag user_icon(post.user), class: "NavProfile__avatar--sm", alt: 'アバター' %>
-  
+
               <span class="nav-item d-sm-inline-block d-none NavProfile__name">
                 <%= post.user&.name || "ゲスト" %>
               </span>
