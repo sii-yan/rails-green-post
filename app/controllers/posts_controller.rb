@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :update, :destroy, :mypost]
 
   def index
-    @posts = Post.with_attached_image.includes(:user)
+    @posts = Post.with_attached_image.includes(:user).order(created_at: :desc)
   end
 
   def show
