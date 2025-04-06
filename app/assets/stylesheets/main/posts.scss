@@ -47,6 +47,11 @@
     width: 100%;
   }
 
+  &__like-count {
+    font-size: 16px;
+    color: $primary-red;
+  }
+
   &__image {
     aspect-ratio: 16 / 9;
     border-radius: 4px 4px 0px 0px;
@@ -78,14 +83,23 @@
 }
 
 .PostBodyWrapper {
-  padding: 24px;
+  padding: 0 24px;
+  margin-bottom: 40px;
 
   @include sm-device-or-less {
-    padding: 20px;
+    padding: 0 20px;
+    margin-bottom: 32px;
   }
 
   @include sm-device-or-less {
-    padding: 16px;
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
   }
 }
 
@@ -173,22 +187,21 @@
 }
 
 .PostDetails {
-  align-items: flex-start;
   display: flex;
-  gap: 32px;
+  align-items: flex-start;
+  gap: 40px;
 
-  @include sm-device-or-less {
+  @include md-device-or-less {
     flex-direction: column;
     gap: 20px;
   }
 
   &__image {
     object-fit: contain;
-    max-width: 704px;
-    max-height: 540px;
+    width: 65%;
     border-radius: 8px;
 
-    @include sm-device-or-less {
+    @include md-device-or-less {
       width: 100%;
     }
   }
