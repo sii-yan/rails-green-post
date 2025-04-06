@@ -1,0 +1,11 @@
+<div id="like_button_<%= post.id %>" >
+  <% if user_signed_in? && post.likes.exists?(user: current_user) %>
+    <%= button_to post_like_path(post), method: :delete, form: { data: { turbo_stream: true } }, class: "btn btn-danger mt-2" do %>
+      ♥ いいね（<%= post.likes.count %>人）
+    <% end %>
+  <% else %>
+    <%= button_to post_like_path(post), method: :post, form: { data: { turbo_stream: true } }, class: "btn btn-outline-danger mt-2" do %>
+      ♡ いいね（<%= post.likes.count %>人）
+    <% end %>
+  <% end %>
+</div>

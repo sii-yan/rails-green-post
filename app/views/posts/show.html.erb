@@ -1,4 +1,4 @@
-<div class="container PostDetailsContainer">
+<div class="PostDetailsContainer">
   <div class="PostDetailsHeader">
     <%= link_to :back, class: "PostDetailsHeader__link" do %>
       <%= image_tag "icons/arrow-back-blue.svg", alt: "戻るアイコン" %>
@@ -29,8 +29,8 @@
     </div>
   </div>
 
-  <div class="">
-    <!-- いいねボタン -->
+  <div class="PostDetailsLike">
+    <%= render partial: "shared/posts/like_button", locals: { post: @post } %>
   </div>
 
   <div class="CommentList">
