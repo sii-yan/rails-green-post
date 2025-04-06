@@ -11,13 +11,13 @@
         <h3>プロフィール</h3>
 
         <%= link_to edit_users_profile_path, class: "AccountInformation__link" do %>
-          <%= image_tag "icons/edit-blue.svg", alt: "編集アイコン" %>
+          <%= image_tag "icons/edit-pen.svg", alt: "編集アイコン" %>
           編集
         <% end %>
       </div>
 
       <div class="AccountInformation__input-group">
-        <%= label_tag :profile_image, "アイコン画像", class: "AccountInformation__label" %>
+        <%= label_tag :image, "アイコン画像", class: "AccountInformation__label" %>
 
         <p class="AccountInformation__value AccountInformation__value--image">
           <%= image_tag user_icon(current_user), alt: 'アイコン画像' %>
