@@ -1,14 +1,15 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :new, :update, :destroy, :mypost]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :mypost]
+  before_action :set_post, only: [:show, :destroy]
+  before_action :authorize_post_owner!, only: [:destroy]
 
   def index
     @posts = Post.with_attached_image.includes(:user).order(created_at: :desc)
   end
 
   def show
-    @post = Post.includes(:user).find(params[:id])
     @comment = Comment.new(post_id: @post.id)
-    @comments = @post.comments.includes(:post).order(created_at: :desc)
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -27,16 +28,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = current_user.posts.find_by(id: params[:id])
-
-    if @post.nil?
-      flash[:alert] = "投稿が見つかりません"
-    elsif @post.destroy
+    if @post.destroy
       flash[:notice] = "投稿が削除されました"
     else
       flash[:alert] = "投稿の削除に失敗しました"
     end
-
     redirect_to mypost_posts_path
   end
 
@@ -45,6 +41,17 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find_by(id: params[:id])
+    unless @post
+      redirect_to root_path, alert: "投稿が見つかりません"
+    end
+  end
+
+  def authorize_post_owner!
+    redirect_to root_path, alert: "権限がありません" if @post.user != current_user
+  end
 
   def post_params
     params.require(:post).permit(:title, :content, :image)
