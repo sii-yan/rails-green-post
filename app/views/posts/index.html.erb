@@ -1,7 +1,5 @@
 <div class="container PostsContainer">
-  <h2 class="PostSectionTitle">
-    みんなの新着投稿
-  </h2>
+  <h2 class="PostSectionTitle">みんなの新着投稿</h2>
 
   <ul class="PostList">
     <% @posts.each do |post| %>
@@ -9,30 +7,17 @@
         <%= link_to post_path(post) do %>
           <%= image_tag post_image(post), alt: "写真", class: "Post__image" %>
 
-          
-
           <div class="PostBodyWrapper">
             <div class="PostBodyWrapper__header">
-              <div class="d-flex align-items-center NavProfile" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= image_tag user_icon(post.user), class: "NavProfile__avatar--sm", alt: 'アバター' %>
-
-                <span class="nav-item d-sm-inline-block d-none NavProfile__name">
-                  <%= post.user&.name || "ゲスト" %>
-                </span>
-              </div>
+              <%= render partial: "shared/user_profile", locals: { user: post.user } %>
 
               <div class="Post__like-count">
                 ♥<%= post.likes.count %>
               </div>
             </div>
 
-            <p class="Post__title">
-              <%= post.title %>
-            </p>
-
-            <p class="Post__content">
-              <%= post.content %>
-            </p>
+            <p class="Post__title"><%= post.title %></p>
+            <p class="Post__content"><%= post.content %></p>
           </div>
         <% end %>
       </li>

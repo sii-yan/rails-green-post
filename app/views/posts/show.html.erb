@@ -1,8 +1,7 @@
 <div class="PostDetailsContainer">
   <div class="PostDetailsHeader">
     <%= link_to :back, class: "PostDetailsHeader__link" do %>
-      <%= image_tag "icons/arrow-back-blue.svg", alt: "戻るアイコン" %>
-      戻る
+      <%= image_tag "icons/arrow-back-blue.svg", alt: "戻るアイコン" %>戻る
     <% end %>
   </div>
 
@@ -10,29 +9,21 @@
     <%= image_tag post_image(@post), alt: "写真", class: "PostDetails__image" %>
 
     <div class="PostDetailsBody">
-      <div class="d-flex align-items-center NavProfile" id="dropdown-button" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= image_tag user_icon(@post.user), class: "NavProfile__avatar", alt: 'アバター' %>
+      <%= render partial: "shared/user_profile", locals: { user: @post.user } %>
 
-        <span class="nav-item d-sm-inline-block d-none NavProfile__name">
-          <%= @post.user&.name || "ゲスト" %>
-        </span>
-      </div>
       <div class="PostDetailsBody__title-and-content">
-        <p class="PostDetails__title">
-          <%= @post.title %>
-        </p>
-
-        <p class="PostDetails__content">
-          <%= @post.content %>
-        </p>
+        <p class="PostDetails__title"><%= @post.title %></p>
+        <p class="PostDetails__content"><%= @post.content %></p>
       </div>
     </div>
   </div>
 
+  <!-- いいね機能 -->
   <div class="PostDetailsLike">
     <%= render partial: "shared/posts/like_button", locals: { post: @post } %>
   </div>
 
+  <!-- コメント表示-->
   <div class="CommentList">
     <div class="CommentList__title">コメント</div>
     <% @comments.each do |comment| %>
@@ -40,5 +31,6 @@
     <% end %>
   </div>
 
+  <!-- コメントフォーム機能 -->
   <%= render "shared/comments/form", comment: @comment %>
 </div>

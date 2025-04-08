@@ -1,5 +1,5 @@
 .AccountFormWrapper {
-  background-color: $background-gray;
+  background-color: $white;
   display: flex;
   height: fit-content;
   min-height: calc(100vh - 80px);
@@ -16,7 +16,8 @@
 }
 
 .AccountFormContainer {
-  background-color: $white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
   margin: auto;
   padding: 32px;
   width: 704px;
