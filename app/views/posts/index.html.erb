@@ -1,0 +1,26 @@
+<div class="container PostsContainer">
+  <h2 class="PostSectionTitle">みんなの新着投稿</h2>
+
+  <ul class="PostList">
+    <% @posts.each do |post| %>
+      <li class="Post">
+        <%= link_to post_path(post) do %>
+          <%= image_tag post_image(post), alt: "写真", class: "Post__image" %>
+
+          <div class="PostBodyWrapper">
+            <div class="PostBodyWrapper__header">
+              <%= render partial: "shared/user_profile", locals: { user: post.user } %>
+
+              <div class="Post__like-count">
+                ♥<%= post.likes.count %>
+              </div>
+            </div>
+
+            <p class="Post__title"><%= post.title %></p>
+            <p class="Post__content"><%= post.content %></p>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

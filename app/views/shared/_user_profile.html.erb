@@ -1,0 +1,4 @@
+<div class="UserProfile">
+  <%= image_tag user_icon(user), class: "UserProfile__avatar", alt: "アバター" %>
+  <span class="UserProfile__name"><%= user&.name || "ゲスト" %></span>
+</div>

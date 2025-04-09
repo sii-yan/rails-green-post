@@ -1,0 +1,256 @@
+.PostsContainer {
+  margin-bottom: 260px;
+  padding-top: 40px;
+
+  @include sm-device-or-less {
+    margin-bottom: 200px;
+  }
+
+  @include xs-device-or-less {
+    margin-bottom: 100px;
+    padding-top: 24px;
+  }
+}
+
+.PostSectionTitle {
+  font-size: 20px;
+
+  @include xs-device-or-less {
+    font-size: 16px;
+  }
+}
+
+.PostList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+
+  @include sm-device-or-less {
+    gap: 20px;
+  }
+
+  @include xs-device-or-less {
+    gap: 16px;
+  }
+}
+
+.Post {
+  box-shadow: 0 0 6px rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  width: calc((100% - 64px) / 3);
+
+  @include sm-device-or-less {
+    width: calc((100% - 20px) / 2);
+  }
+
+  @include xs-device-or-less {
+    width: 100%;
+  }
+
+  &__like-count {
+    font-size: 16px;
+    color: $primary-red;
+  }
+
+  &__image {
+    aspect-ratio: 16 / 9;
+    border-radius: 4px 4px 0px 0px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__title {
+    @include post-title;
+  }
+
+  &__content {
+    @include post-content;
+  }
+
+  &__link {
+    @include basic-button;
+    @include primary-button;
+
+    font-size: 16px;
+    line-height: 58px;
+    padding: 0 20px;
+    text-align: center;
+
+    @include md-device-or-less {
+      width: 100%;
+    }
+  }
+}
+
+.PostBodyWrapper {
+  padding: 0 24px;
+  margin-bottom: 40px;
+
+  @include sm-device-or-less {
+    padding: 0 20px;
+    margin-bottom: 32px;
+  }
+
+  @include sm-device-or-less {
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+  }
+}
+
+
+// ---------------- PostsForm ----------------
+.PostsForm {
+  &__input-group {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    @include xs-device-or-less {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  &__label {
+    color: $text-black;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  &__input {
+    width: 66%;
+
+    @include xs-device-or-less {
+      width: 100%
+    }
+  }
+
+  &__button {
+    @include basic-button;
+
+    font-size: 14px;
+    font-weight: 700;
+    height: 45px;
+    line-height: 21px;
+    width: 100%;
+
+    &--submit {
+      @include primary-button;
+
+      margin-bottom: 16px
+    }
+
+    &--cancel {
+      @include secondary-button;
+
+      color: $text-black;
+    }
+  }
+}
+
+
+// ---------------- PostDetails ----------------
+.PostDetailsContainer {
+  margin-bottom: 260px;
+  padding-top: 40px;
+
+  @include sm-device-or-less {
+    margin-bottom: 200px;
+  }
+
+  @include xs-device-or-less {
+    margin-bottom: 100px;
+  }
+}
+
+.PostDetailsHeader {
+  display: flex;
+  justify-content: space-between;
+
+  &__link {
+    color: $link-blue;
+    display: flex;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+}
+
+.PostDetails {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  @include md-device-or-less {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__image {
+    object-fit: contain;
+    width: 65%;
+    border-radius: 8px;
+
+    @include md-device-or-less {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include post-title;
+    font-size: 24px;
+    line-height: 36px;
+    margin: 16px 0 8px 0;
+
+    @include sm-device-or-less {
+      font-size: 20px;
+      line-height: 32px;
+    }
+
+    @include xs-device-or-less {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__content {
+    @include post-content;
+
+    display: block;
+  }
+}
+
+.PostDetailsBody {
+
+  &__title-and-content {
+    margin-bottom: 8px;
+
+    @include xs-device-or-less {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// ---------------- MyPosts ----------------
+.MyPostsContainer {
+  margin-top: 40px;
+  margin-bottom: 260px;
+}
+
+.MyPostsTable {
+  @include index-table;
+
+  &__delete {
+    color: $text-gray;
+  }
+}

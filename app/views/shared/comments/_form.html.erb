@@ -1,0 +1,9 @@
+<div class="CommentForm">
+  <%= form_with model: comment do |f| %>
+    <%= f.hidden_field :post_id %>
+    <div class="form-group mb-3">
+      <%= f.text_area :comment, class: 'form-control', placeholder: "この投稿にコメントしてみる", rows: 4 %>
+    </div>
+    <%= f.submit '投稿する', class: 'btn CommentForm__button' %>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        title: タイトル
+        content: コメント
+        image: 写真
+      comment:
+    errors:
+      models:
+        post:
+          attributes:
+            title:
+              blank: "は必須です。"
+            content:
+              blank: "は必須です。"
+            image:
+              blank: "は必須です。"

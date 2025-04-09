@@ -1,17 +1,36 @@
-# ベースとして使用するイメージ名（DockerHubからダウンロードされる）
-FROM ruby:3.2.2-alpine
+# Debianベースのイメージ
+FROM ruby:3.2.2-bullseye
 
-# 利用可能なパッケージのリストを更新するコマンドを実行
-RUN apk update
+# 必要なパッケージのインストール
+RUN apt-get update -qq && apt-get install -y \
+  build-essential \
+  libpq-dev \
+  default-mysql-client \
+  nodejs \
+  npm \
+  wget \
+  gnupg \
+  unzip \
+  tzdata
 
-# パッケージをインストールするコマンドを実行
-RUN apk add g++ make mysql-dev tzdata
+# Google Chrome のインストール（Debian/Ubuntu系）
+RUN apt-get update && apt-get install -y \
+  wget \
+  gnupg \
+  unzip \
+  && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+  && apt install -y ./google-chrome-stable_current_amd64.deb \
+  && rm google-chrome-stable_current_amd64.deb
 
-# コンテナを起動した時の作業ディレクトリを/appにする
+
+# 作業ディレクトリの設定
 WORKDIR /app
 
-# PC上のGemfile を .（/app）にコピー
-COPY Gemfile .
-
-# bundle installでGemfileに記述されているgemをインストール
+# Gemfile をコピーして bundle install
+COPY Gemfile ./
+COPY Gemfile.lock ./
 RUN bundle install
+
+# アプリケーションの全ファイルをコピー（Gemfile以外も）
+COPY . .
+
