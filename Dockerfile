@@ -34,3 +34,5 @@ RUN bundle install
 # アプリケーションの全ファイルをコピー（Gemfile以外も）
 COPY . .
 
+# render-build.sh を実行できるようにする
+RUN chmod +x ./render-build.sh
