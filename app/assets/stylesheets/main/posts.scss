@@ -196,12 +196,15 @@
   }
 
   &__image {
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top center;
     width: 65%;
+    height: 450px;
     border-radius: 8px;
 
     @include md-device-or-less {
       width: 100%;
+      height: auto;
     }
   }
 
