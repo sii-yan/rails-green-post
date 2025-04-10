@@ -19,7 +19,7 @@
 - バックエンド: Ruby on Rails 7
 - DB: PostgreSQL (本番) 
 - デプロイ: Render（Docker）
-- 画像ストレージ**: Amazon S3
+- 画像ストレージ: Amazon S3
 
 ---
 
