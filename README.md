@@ -7,12 +7,6 @@
 
 ---
 
-### 🔗 デモサイト
-
-[https://rails-green-post.onrender.com](https://rails-green-post.onrender.com)
-
----
-
 ### 🛠 使用技術
 
 - フロントエンド: HTML / Sass / JavaScript (Importmap)
